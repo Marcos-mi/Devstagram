@@ -7,11 +7,11 @@
 @section('contenido')
     <div class="md:flex md:justify-center md:gap-11 md:items-center">
         <div class="md:w-6/12 p-5">
-            <img src="{{asset('img/registrar.jpg')}}" alt="Imagen de registro">
+            <a href=""><img src="{{asset('img/registrar.jpg')}}" alt="Imagen de registro"></a>
         </div>
-
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl ">
-            <form action="/crear-cuenta" method="POST">
+            <form action="{{route('register')}}" method="POST">
+                @csrf|
                 <div class="mb-5">
                     <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">Nombre</label>
                     <input type="text" name="name" id="name" placeholder="Ingresa tu Nombre" class="border p-3 w-full rounded-lg">
