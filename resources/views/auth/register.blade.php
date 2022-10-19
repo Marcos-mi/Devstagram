@@ -11,10 +11,17 @@
         </div>
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl ">
             <form action="{{route('register')}}" method="POST">
-                @csrf|
+                @csrf
                 <div class="mb-5">
                     <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">Nombre</label>
-                    <input type="text" name="name" id="name" placeholder="Ingresa tu Nombre" class="border p-3 w-full rounded-lg">
+                    <input type="text" name="name" id="name" placeholder="Ingresa tu Nombre" class="border p-3 w-full rounded-lg @error('name')
+                        border-red-500
+                    @enderror"
+                     value="{{old('name')}}"
+                     />
+                    @error('name')
+                        <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-cemter ">{{$message}}</p>
+                    @enderror
                 </div>
                 <div class="mb-5">
                     <label for="username" class="mb-2 block uppercase text-gray-500 font-bold">Usuario</label>
