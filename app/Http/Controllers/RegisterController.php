@@ -24,17 +24,15 @@ class RegisterController extends Controller
             'name' => "required|max:30",
             'username' =>  "required|unique:users|min:3|max:16",
             'email' => "required|unique:users|min:3|max:45|email",
-            'password' => "required|confirmed|min:6",
+            'password' => "required|confirmed|min:6"
         ]);
-
+        //creación del usuario
         User::create([
             'name' => $request-> name,
             'username' => $request-> username,
             'email' => $request-> email,
             'password' => Hash::make( $request-> password)
         ]);
-
-
         //autenticar usuario
         auth()-> attempt($request->only('email', 'password'));
         //redireccionar

@@ -13,10 +13,23 @@
                 <h1 class="text-3xl font-black">
                     DevStagram
                 </h1>
-                <nav>
-                    <a class="font-bold uppercase text-gray-600" href="">Login</a>
-                    <a class="font-bold uppercase text-gray-600" href="{{route('register')}}">Crear Cuenta</a>
-                </nav>
+                @auth
+                    <nav>
+                        <a class="font-bold  text-gray-600" href="">
+                            Hola: <span class="font-normal">{{auth()->user()->username}}</span>
+                        </a>
+                        <form method="POST" action="{{route('logout')}}">
+                            @csrf
+                            <button type="submit" class="font-bold uppercase text-gray-600">Cerrar Sesión</button>
+                        </form>
+                    </nav>
+                @endauth
+                @guest
+                    <nav>
+                        <a class="font-bold uppercase text-gray-600" href="">Login</a>
+                        <a class="font-bold uppercase text-gray-600" href="{{route('register')}}">Crear Cuenta</a>
+                    </nav>
+                @endguest
             </div>
 
        </header>
