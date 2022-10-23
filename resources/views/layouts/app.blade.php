@@ -20,7 +20,7 @@
                         </a>
                         <form method="POST" action="{{route('logout')}}">
                             @csrf
-                            <button type="submit" class="font-bold uppercase text-gray-600">Cerrar Sesión</button>
+                            <button type="submit" class="font-bold uppercase text-gray-600 ">Cerrar Sesión</button>
                         </form>
                     </nav>
                 @endauth
